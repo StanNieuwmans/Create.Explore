@@ -23,7 +23,9 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset('../assets/logo.jpg', fit: BoxFit.cover),
+        title: Container(
+            child: Image.asset('../assets/logo.jpg', fit: BoxFit.cover),
+            padding: EdgeInsets.symmetric(horizontal: 20.0)),
         elevation: 0.0,
         actions: [
           IconButton(
@@ -62,10 +64,48 @@ class Home extends StatelessWidget {
               ),
               padding: EdgeInsets.symmetric(horizontal: 35.0, vertical: 25.0),
             ),
+            Container(
+              child: ListView.builder(
+                itemBuilder: (BuildContext context, int index){
+                  if(index % 2 == 0){
+                    return _buildCarousel(context, index ~/ 2);
+                  }
+                  else{
+                    return Divider();
+                  }
+                }
+                ),
+            ),
           ],
         ),
       ),
-      backgroundColor: Colors.white,
+    );
+  }
+
+  Widget _buildCarousel(BuildContext context, int carouselIndex) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Text('Carousel $carouselIndex'),
+        SizedBox(
+            height: 200.0,
+            child: PageView.builder(
+                controller: PageController(viewportFraction: 0.8),
+                itemBuilder: (BuildContext context, int itemIndex) {
+                  return _buildCarouselItem(context, carouselIndex, itemIndex);
+                }))
+      ],
+    );
+  }
+  Widget _buildCarouselItem(BuildContext context, int carouselIndex, int itemIndex){
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 4.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey,
+          borderRadius: BorderRadius.all(Radius.circular(4.0)),
+        ),
+      ),
     );
   }
 }
