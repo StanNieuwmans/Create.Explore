@@ -9,7 +9,8 @@ class PlanApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Create. Explore.',
-      theme: ThemeData(primaryColor: Colors.white),
+      theme: ThemeData(primaryColor: Colors.white, scaffoldBackgroundColor: Colors.white, canvasColor: Colors.white),
+      debugShowCheckedModeBanner: false,
       home: Home(),
     );
   }
@@ -33,6 +34,32 @@ class Home extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 50.0)),
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.grey,
+        iconSize: 35,
+        currentIndex: 0,
+        elevation: 0.0,
+        showSelectedLabels: false,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search_outlined),
+            title: Text("Search")
+          ),
+           BottomNavigationBarItem(
+            icon: Icon(Icons.map_outlined),
+            title: Text("Map")
+          ),
+           BottomNavigationBarItem(
+            icon: Icon(Icons.bookmark_outline),
+            title: Text("Bookmark")
+          ),
+           BottomNavigationBarItem(
+            icon: Icon(Icons.more_horiz_outlined),
+            title: Text("More")
+          ),
+        ],
+      ),
       body: Container(
           child: Stack(children: [
         Wrap(
@@ -40,7 +67,7 @@ class Home extends StatelessWidget {
             Container(
                 child: Text(
                   "Pack your bag and create unbelievable adventures and explore the world",
-                  style: TextStyle(fontSize: 40, fontFamily: 'RoboSlab'),
+                  style: TextStyle(fontSize: 35, fontFamily: 'RoboSlab'),
                   textAlign: TextAlign.left,
                 ),
                 padding:
@@ -66,15 +93,21 @@ class Home extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 35.0, vertical: 25.0),
             ),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 20.0),
-              height: 450.0,
+              margin: EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
+              height: 525.0,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
-                  Container(
+                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 20.0),
                     width: 350.0,
                     decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          "../assets/josh.jpg"
+                        ),
+                        fit: BoxFit.cover,
+                      ),
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.red),
                   ),
@@ -82,20 +115,38 @@ class Home extends StatelessWidget {
                     margin: EdgeInsets.symmetric(horizontal: 20.0),
                     width: 350.0,
                     decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          "../assets/josh.jpg"
+                        ),
+                        fit: BoxFit.cover,
+                      ),
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.red),
                   ),
-                  Container(
+                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 20.0),
                     width: 350.0,
                     decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          "../assets/josh.jpg"
+                        ),
+                        fit: BoxFit.cover,
+                      ),
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.red),
                   ),
-                  Container(
+                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 20.0),
                     width: 350.0,
                     decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          "../assets/josh.jpg"
+                        ),
+                        fit: BoxFit.cover,
+                      ),
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.red),
                   ),
