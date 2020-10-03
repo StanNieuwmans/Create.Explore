@@ -34,7 +34,8 @@ class Home extends StatelessWidget {
         ],
       ),
       body: Container(
-        child: Wrap(
+          child: Stack(children: [
+        Wrap(
           children: [
             Container(
                 child: Text(
@@ -65,47 +66,46 @@ class Home extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 35.0, vertical: 25.0),
             ),
             Container(
-              child: ListView.builder(
-                itemBuilder: (BuildContext context, int index){
-                  if(index % 2 == 0){
-                    return _buildCarousel(context, index ~/ 2);
-                  }
-                  else{
-                    return Divider();
-                  }
-                }
-                ),
-            ),
+              margin: EdgeInsets.symmetric(vertical: 20.0),
+              height: 450.0,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20.0),
+                    width: 350.0,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.red),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20.0),
+                    width: 350.0,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.red),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20.0),
+                    width: 350.0,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.red),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20.0),
+                    width: 350.0,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.red),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildCarousel(BuildContext context, int carouselIndex) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        Text('Carousel $carouselIndex'),
-        SizedBox(
-            height: 200.0,
-            child: PageView.builder(
-                controller: PageController(viewportFraction: 0.8),
-                itemBuilder: (BuildContext context, int itemIndex) {
-                  return _buildCarouselItem(context, carouselIndex, itemIndex);
-                }))
-      ],
-    );
-  }
-  Widget _buildCarouselItem(BuildContext context, int carouselIndex, int itemIndex){
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 4.0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.grey,
-          borderRadius: BorderRadius.all(Radius.circular(4.0)),
-        ),
-      ),
+      ]),
+      color: Colors.white),
     );
   }
 }
