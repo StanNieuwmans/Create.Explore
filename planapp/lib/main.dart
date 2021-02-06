@@ -81,7 +81,6 @@ class Home extends StatelessWidget {
                   hintText: 'What would you like to explore?',
                   hintStyle: TextStyle(
                     fontSize: 20.0,
-                    height: 2.5,
                   ),
                   prefixIcon: Padding(
                     padding: EdgeInsets.all(0.0),
@@ -94,13 +93,13 @@ class Home extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
-              height: 525.0,
+              height: MediaQuery.of(context).size.height / 1.8,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                    Container(
                     margin: EdgeInsets.symmetric(horizontal: 20.0),
-                    width: 350.0,
+                    width: MediaQuery.of(context).size.width / 1.8,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(
@@ -113,7 +112,7 @@ class Home extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.symmetric(horizontal: 20.0),
-                    width: 350.0,
+                    width: MediaQuery.of(context).size.width / 1.8,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(
@@ -126,7 +125,7 @@ class Home extends StatelessWidget {
                   ),
                    Container(
                     margin: EdgeInsets.symmetric(horizontal: 20.0),
-                    width: 350.0,
+                    width: MediaQuery.of(context).size.width / 1.8,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(
@@ -139,7 +138,7 @@ class Home extends StatelessWidget {
                   ),
                    Container(
                     margin: EdgeInsets.symmetric(horizontal: 20.0),
-                    width: 350.0,
+                    width: MediaQuery.of(context).size.width / 1.8,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(
