@@ -49,13 +49,13 @@ class Home extends StatelessWidget {
         showSelectedLabels: false,
         items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.search_outlined), title: Text("Search")),
+              icon: Icon(Icons.search_outlined), label: "Search"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.map_outlined), title: Text("Map")),
+              icon: Icon(Icons.map_outlined), label: "Map"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.bookmark_outline), title: Text("Bookmark")),
+              icon: Icon(Icons.bookmark_outline), label: "Bookmark"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.more_horiz_outlined), title: Text("More")),
+              icon: Icon(Icons.more_horiz_outlined), label: "More"),
         ],
       ),
       body: Container(
