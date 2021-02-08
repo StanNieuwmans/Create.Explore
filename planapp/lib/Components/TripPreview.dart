@@ -13,7 +13,7 @@ class TripPreview extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           borderRadius: BorderRadius.circular(20),
-          color: Colors.red),
+          color: Colors.white),
     );
   }
 }

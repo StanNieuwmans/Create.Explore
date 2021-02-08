@@ -12,7 +12,7 @@ class SearchField extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(10.0))),
           hintText: 'What would you like to explore?',
           hintStyle: TextStyle(
-            fontSize: 20.0,
+            fontSize: (MediaQuery.of(context).size.height / 50),
           ),
           prefixIcon: Padding(
             padding: EdgeInsets.all(0.0),
@@ -21,7 +21,7 @@ class SearchField extends StatelessWidget {
           contentPadding: EdgeInsets.symmetric(horizontal: 0.0),
         ),
       ),
-      padding: EdgeInsets.symmetric(horizontal: 35.0, vertical: 25.0),
+      padding: EdgeInsets.symmetric(horizontal: 35.0, vertical: 20.0),
     );
   }
 }
