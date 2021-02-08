@@ -21,7 +21,7 @@ class SearchField extends StatelessWidget {
           contentPadding: EdgeInsets.symmetric(horizontal: 0.0),
         ),
       ),
-      padding: EdgeInsets.symmetric(horizontal: 35.0, vertical: 20.0),
+      padding: EdgeInsets.symmetric(horizontal: 35.0, vertical: 5.0),
     );
   }
 }

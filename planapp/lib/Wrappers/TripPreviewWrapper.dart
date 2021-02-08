@@ -7,7 +7,7 @@ class TripPreviewWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         margin: EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
-        height: MediaQuery.of(context).size.height / 1.8,
+        height: MediaQuery.of(context).size.height / 1.7, //fix height of preview
         child:
             ListView(scrollDirection: Axis.horizontal, children: <TripPreview>[
           TripPreview(),

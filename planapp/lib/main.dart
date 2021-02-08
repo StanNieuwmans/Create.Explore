@@ -31,7 +31,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Container(
-            child: Image.asset('../assets/logo.jpg', fit: BoxFit.cover),
+            child: Image.network('https://images.unsplash.com/photo-1545231027-637d2f6210f8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80', fit: BoxFit.cover),
             padding: EdgeInsets.symmetric(horizontal: 20.0)),
         elevation: 0.0,
         actions: [
@@ -43,7 +43,7 @@ class Home extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,
-        iconSize: 35,
+        iconSize: MediaQuery.of(context).size.height / 30,
         currentIndex: 0,
         elevation: 0.0,
         showSelectedLabels: false,
