@@ -37,7 +37,8 @@ class Home extends StatelessWidget {
         actions: [
           IconButton(
               icon: Icon(Icons.person_pin_rounded),
-              padding: EdgeInsets.symmetric(horizontal: 50.0)),
+              padding: EdgeInsets.symmetric(horizontal: 50.0),
+              color: Colors.white),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
