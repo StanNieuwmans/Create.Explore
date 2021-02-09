@@ -10,7 +10,7 @@ class HeadTitle extends StatelessWidget {
           ///Problem with Sizing for all sizes on mobile -- look into that
           child: Text(
             "Pack your bag and create unbelievable adventures and explore the world",
-            style: TextStyle(fontSize: (MediaQuery.of(context).size.height / 35), fontFamily: 'RoboSlab'),
+            style: TextStyle(fontSize: (MediaQuery.of(context).size.height / 30), fontFamily: 'RoboSlab'),
             textAlign: TextAlign.left,
           )),
     );
