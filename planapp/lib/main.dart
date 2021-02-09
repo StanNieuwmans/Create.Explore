@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:planapp/Components/HeadTitle.dart';
+import 'package:planapp/Components/SearchField.dart';
+import 'package:planapp/Wrappers/TripPreviewWrapper.dart';
 
 void main() => runApp(PlanApp());
 
@@ -9,7 +12,11 @@ class PlanApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Create. Explore.',
-      theme: ThemeData(primaryColor: Colors.white),
+      theme: ThemeData(
+          primaryColor: Colors.white,
+          scaffoldBackgroundColor: Colors.white,
+          canvasColor: Colors.white),
+      debugShowCheckedModeBanner: false,
       home: Home(),
     );
   }
@@ -23,7 +30,9 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset('../assets/logo.jpg', fit: BoxFit.cover),
+        title: Container(
+            child: Image.network('https://images.unsplash.com/photo-1545231027-637d2f6210f8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80', fit: BoxFit.cover),
+            padding: EdgeInsets.symmetric(horizontal: 20.0)),
         elevation: 0.0,
         actions: [
           IconButton(
@@ -31,41 +40,31 @@ class Home extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 50.0)),
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.grey,
+        iconSize: MediaQuery.of(context).size.height / 30,
+        currentIndex: 0,
+        elevation: 0.0,
+        showSelectedLabels: false,
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.search_outlined), label: "Search"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.map_outlined), label: "Map"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.bookmark_outline), label: "Bookmark"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.more_horiz_outlined), label: "More"),
+        ],
+      ),
       body: Container(
-        child: Wrap(
+        child: Stack(
           children: [
-            Container(
-                child: Text(
-                  "Pack your bag and create unbelievable adventures and explore the world",
-                  style: TextStyle(fontSize: 40, fontFamily: 'RoboSlab'),
-                  textAlign: TextAlign.left,
-                ),
-                padding:
-                    EdgeInsets.symmetric(horizontal: 35.0, vertical: 15.0)),
-            Container(
-              child: TextFormField(
-                textAlign: TextAlign.left,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                  hintText: 'What would you like to explore?',
-                  hintStyle: TextStyle(
-                    fontSize: 20.0,
-                    height: 2.5,
-                  ),
-                  prefixIcon: Padding(
-                    padding: EdgeInsets.all(0.0),
-                    child: Icon(Icons.search, color: Colors.grey),
-                  ),
-                  contentPadding: EdgeInsets.symmetric(horizontal: 0.0),
-                ),
-              ),
-              padding: EdgeInsets.symmetric(horizontal: 35.0, vertical: 25.0),
-            ),
+            Wrap(children: [HeadTitle(), SearchField(), TripPreviewWrapper()])
           ],
         ),
       ),
-      backgroundColor: Colors.white,
     );
   }
 }
