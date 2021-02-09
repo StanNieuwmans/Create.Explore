@@ -1,101 +1,127 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:planapp/Pages/Post.dart';
+import 'package:planapp/RouteAnimation/ScaleRoute.dart';
 
 class TripPreview extends StatelessWidget {
-  @override
+  final String postPreviewImageUrl;
+  final String postPreviewLandTitle;
+  final String postPreviewLandText;
+  final int postPreviewTripMonths;
+
+  TripPreview(
+      {Key key,
+      this.postPreviewImageUrl,
+      this.postPreviewLandTitle,
+      this.postPreviewLandText,
+      this.postPreviewTripMonths})
+      : super(key: key);
+
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20.0),
-      width: MediaQuery.of(context).size.width / 1.8,
-      decoration: BoxDecoration(
-          image: DecorationImage(
-            image: NetworkImage(
-                "https://images.unsplash.com/photo-1612728303797-aad63f9dee79?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"),
-            fit: BoxFit.cover,
-          ),
-          borderRadius: BorderRadius.circular(20),
-          color: Colors.white),
-      child: Column(
-        children: [
-          Row(children: [
-            Expanded(
-              child: Align(
-                alignment: Alignment.topRight,
-                child: SizedBox(
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    child: Wrap(
-                      children: [
-                        Container(
-                            padding: EdgeInsets.symmetric(horizontal: 5),
-                            child: Icon(Icons.timer,
-                                color: Colors.white,
-                                size:
-                                    (MediaQuery.of(context).size.height / 45))),
-                        Text(
-                          "10 Months's",
-                          style: TextStyle(
-                            fontSize: (MediaQuery.of(context).size.height / 65),
-                            fontFamily: 'RoboSlab',
-                            color: Colors.white,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            ScaleRoute(
+                page: Post(
+                    postLandTitle: postPreviewLandTitle,
+                    postLandText: postPreviewLandText,
+                    postTripMonths: postPreviewTripMonths,
+                    postImage: new NetworkImage(postPreviewImageUrl))));
+      },
+      child: Container(
+        margin: EdgeInsets.only(right: 20.0, left: 35),
+        width: MediaQuery.of(context).size.width / 1.8,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+              image: new NetworkImage(postPreviewImageUrl),
+              fit: BoxFit.cover,
+            ),
+            borderRadius: BorderRadius.circular(20),
+            color: Colors.white),
+        child: Column(
+          children: [
+            Row(children: [
+              Expanded(
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: SizedBox(
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      child: Wrap(
+                        children: [
+                          Container(
+                              padding: EdgeInsets.symmetric(horizontal: 5),
+                              child: Icon(Icons.timer,
+                                  color: Colors.white,
+                                  size: (MediaQuery.of(context).size.height /
+                                      45))),
+                          Text(
+                            "$postPreviewTripMonths Months's",
+                            style: TextStyle(
+                              fontSize:
+                                  (MediaQuery.of(context).size.height / 65),
+                              fontFamily: 'RoboSlab',
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ]),
-          Row(
-            children: [
-              Expanded(
-                  child: SizedBox(
-                height: MediaQuery.of(context).size.height / 2.5,
-                child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Wrap(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          child: SizedBox(
-                            width: 200,
-                            child: Wrap(children: [
-                              Text(
-                                "Iceland",
-                                style: TextStyle(
-                                    fontSize:
-                                        (MediaQuery.of(context).size.height /
-                                            40),
-                                    fontFamily: 'RoboSlab',
-                                    color: Colors.white),
-                              )
-                            ]),
+            ]),
+            Row(
+              children: [
+                Expanded(
+                    child: SizedBox(
+                  height: MediaQuery.of(context).size.height / 2.5,
+                  child: Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Wrap(
+                        children: [
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            child: SizedBox(
+                              width: 200,
+                              child: Wrap(children: [
+                                Text(
+                                  "$postPreviewLandTitle",
+                                  style: TextStyle(
+                                      fontSize:
+                                          (MediaQuery.of(context).size.height /
+                                              40),
+                                      fontFamily: 'RoboSlab',
+                                      color: Colors.white),
+                                )
+                              ]),
+                            ),
                           ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.all(10),
-                          child: SizedBox(
-                            width: 200,
-                            child: Wrap(children: [
-                              Text(
-                                "10 Places planned in your trip",
-                                style: TextStyle(
-                                    fontSize:
-                                        (MediaQuery.of(context).size.height /
-                                            65),
-                                    fontFamily: 'RoboSlab',
-                                    color: Colors.white),
-                              )
-                            ]),
+                          Container(
+                            padding: EdgeInsets.all(10),
+                            child: SizedBox(
+                              width: 200,
+                              child: Wrap(children: [
+                                Text(
+                                  "$postPreviewLandText",
+                                  style: TextStyle(
+                                      fontSize:
+                                          (MediaQuery.of(context).size.height /
+                                              65),
+                                      fontFamily: 'RoboSlab',
+                                      color: Colors.white),
+                                )
+                              ]),
+                            ),
                           ),
-                        ),
-                      ],
-                    )),
-              )),
-            ],
-          )
-        ],
+                        ],
+                      )),
+                )),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
