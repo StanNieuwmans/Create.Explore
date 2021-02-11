@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:planapp/Components/HeadTitle.dart';
 import 'package:planapp/Components/SearchField.dart';
-import 'package:planapp/Wrappers/TripPreviewWrapper.dart';
+import 'package:planapp/Wrappers/TripPreviewPostWrapper.dart';
 
 void main() => runApp(PlanApp());
 
@@ -31,9 +31,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Container(
-            child: Image.asset(
-                "images/logo.png",
-                fit: BoxFit.cover),
+            child: Image.asset("images/logo.png", fit: BoxFit.cover),
             padding: EdgeInsets.symmetric(horizontal: 20.0)),
         elevation: 0.0,
         actions: [
@@ -54,7 +52,8 @@ class Home extends StatelessWidget {
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.search_outlined), label: "Search"),
-          BottomNavigationBarItem(icon: Icon(Icons.map_outlined), label: "Map"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.map_outlined), label: "Map"),
           BottomNavigationBarItem(
               icon: Icon(Icons.bookmark_outline), label: "Bookmark"),
           BottomNavigationBarItem(
@@ -64,7 +63,11 @@ class Home extends StatelessWidget {
       body: Container(
         child: Stack(
           children: [
-            Wrap(children: [HeadTitle(), SearchField(), TripPreviewWrapper()])
+            Wrap(children: [
+              HeadTitle(),
+              SearchField(),
+              TripPreviewPostWrapper()
+            ])
           ],
         ),
       ),

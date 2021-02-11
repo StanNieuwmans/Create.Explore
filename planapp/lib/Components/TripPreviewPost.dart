@@ -3,13 +3,13 @@ import 'package:flutter/widgets.dart';
 import 'package:planapp/Pages/Post.dart';
 import 'package:planapp/RouteAnimation/ScaleRoute.dart';
 
-class TripPreview extends StatelessWidget {
+class TripPreviewPost extends StatelessWidget {
   final String postPreviewImageUrl;
   final String postPreviewLandTitle;
   final String postPreviewLandText;
   final int postPreviewTripMonths;
 
-  TripPreview(
+  TripPreviewPost(
       {Key key,
       this.postPreviewImageUrl,
       this.postPreviewLandTitle,
@@ -76,7 +76,7 @@ class TripPreview extends StatelessWidget {
               children: [
                 Expanded(
                     child: SizedBox(
-                  height: MediaQuery.of(context).size.height / 2.5,
+                  height: MediaQuery.of(context).size.height / 2.8,
                   child: Align(
                       alignment: Alignment.bottomLeft,
                       child: Wrap(
@@ -98,26 +98,28 @@ class TripPreview extends StatelessWidget {
                               ]),
                             ),
                           ),
-                          Container(
-                            padding: EdgeInsets.all(10),
-                            child: SizedBox(
-                              width: 200,
-                              child: Wrap(children: [
-                                Text(
-                                  "$postPreviewLandText",
-                                  style: TextStyle(
-                                      fontSize:
-                                          (MediaQuery.of(context).size.height /
-                                              65),
-                                      fontFamily: 'RoboSlab',
-                                      color: Colors.white),
-                                )
-                              ]),
-                            ),
-                          ),
                         ],
                       )),
                 )),
+              ],
+            ),
+            Row(
+              children: [
+                Container(
+                  padding: EdgeInsets.all(10),
+                  child: SizedBox(
+                    width: 200,
+                    child: Wrap(children: [
+                      Text(
+                        "$postPreviewLandText",
+                        style: TextStyle(
+                            fontSize: (MediaQuery.of(context).size.height / 65),
+                            fontFamily: 'RoboSlab',
+                            color: Colors.white),
+                      )
+                    ]),
+                  ),
+                ),
               ],
             )
           ],
