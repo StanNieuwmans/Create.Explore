@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:planapp/Components/HeadTitle.dart';
-import 'package:planapp/Components/SearchField.dart';
-import 'package:planapp/Wrappers/TripPreviewPostWrapper.dart';
+import 'package:create_explore/Components/HeadTitle.dart';
+import 'package:create_explore/Components/SearchField.dart';
+import 'package:create_explore/Wrappers/TripPreviewPostWrapper.dart';
 
 void main() => runApp(PlanApp());
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:planapp/Pages/Post.dart';
-import 'package:planapp/RouteAnimation/ScaleRoute.dart';
+import 'package:create_explore/Pages/Post.dart';
+import 'package:create_explore/RouteAnimation/ScaleRoute.dart';
 
 class TripPreviewPost extends StatelessWidget {
   final String postPreviewImageUrl;
@@ -84,7 +84,6 @@ class TripPreviewPost extends StatelessWidget {
                           Container(
                             padding: EdgeInsets.symmetric(horizontal: 10),
                             child: SizedBox(
-                              width: 200,
                               child: Wrap(children: [
                                 Text(
                                   "$postPreviewLandTitle",
@@ -108,7 +107,6 @@ class TripPreviewPost extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.all(10),
                   child: SizedBox(
-                    width: 200,
                     child: Wrap(children: [
                       Text(
                         "$postPreviewLandText",

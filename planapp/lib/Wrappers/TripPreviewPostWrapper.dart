@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:planapp/Components/TripPreviewPost.dart';
+import 'package:create_explore/Components/TripPreviewPost.dart';
 
 class TripPreviewPostWrapper extends StatelessWidget {
   @override
