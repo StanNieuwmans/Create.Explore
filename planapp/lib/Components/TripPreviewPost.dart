@@ -1,6 +1,6 @@
+import 'package:create_explore/Pages/PostPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:create_explore/Pages/Post.dart';
 import 'package:create_explore/RouteAnimation/ScaleRoute.dart';
 
 class TripPreviewPost extends StatelessWidget {
@@ -23,7 +23,7 @@ class TripPreviewPost extends StatelessWidget {
         Navigator.push(
             context,
             ScaleRoute(
-                page: Post(
+                page: PostPage(
                     postLandTitle: postPreviewLandTitle,
                     postLandText: postPreviewLandText,
                     postTripMonths: postPreviewTripMonths,

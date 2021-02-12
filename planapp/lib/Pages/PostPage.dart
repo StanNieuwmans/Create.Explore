@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class Post extends StatelessWidget {
+class PostPage extends StatelessWidget {
   final NetworkImage postImage;
   final String postLandTitle;
   final String postLandText;
   final int postTripMonths;
 
-  Post(
+  PostPage(
       {Key key,
       this.postImage,
       this.postLandTitle,
