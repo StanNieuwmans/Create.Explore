@@ -13,12 +13,13 @@ class PreviewPostPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Container(
-            // child: Image.asset("images/logo.png", fit: BoxFit.cover),
+            child: Image.asset("images/logo.png", fit: BoxFit.cover),
             padding: EdgeInsets.symmetric(horizontal: 20.0)),
         elevation: 0.0,
         actions: [
-          Container(
-            child: Image.asset(user.photoURL),
+          CircleAvatar(
+            maxRadius: 25,
+            backgroundImage: NetworkImage(user.photoURL),
           )
         ],
       ),
@@ -32,7 +33,8 @@ class PreviewPostPage extends StatelessWidget {
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.search_outlined), label: "Search"),
-          BottomNavigationBarItem(icon: Icon(Icons.map_outlined), label: "Map"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.map_outlined), label: "Map"),
           BottomNavigationBarItem(
               icon: Icon(Icons.bookmark_outline), label: "Bookmark"),
           BottomNavigationBarItem(
