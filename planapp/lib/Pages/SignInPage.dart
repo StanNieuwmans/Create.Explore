@@ -20,7 +20,7 @@ class SignInPage extends StatelessWidget {
               if (provider.isSigningIn) {
                 return buildLoading();
               } else if (snapshot.hasData) {
-                return SignUpPage();
+                return PreviewPostPage();
               } else {
                 return SignUpPage();
               }
