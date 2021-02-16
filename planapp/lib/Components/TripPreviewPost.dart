@@ -1,4 +1,4 @@
-import 'package:create_explore/Pages/PostPage.dart';
+import 'package:create_explore/Pages/FullScreenPage/PostPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:create_explore/RouteAnimation/ScaleRoute.dart';

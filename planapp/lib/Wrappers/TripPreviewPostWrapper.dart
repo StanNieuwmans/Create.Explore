@@ -36,27 +36,29 @@ class GetPost extends StatelessWidget {
         }
 
         if (snapshot.connectionState == ConnectionState.done) {
-          List<TripPreviewPost> test = new List<TripPreviewPost>();
+          List<TripPreviewPost> userPosts =
+              new List<TripPreviewPost>.empty(growable: true);
           snapshot.data.docs.forEach((post) {
             Map<String, dynamic> data = post.data();
 
-            test.add(TripPreviewPost(
+            userPosts.add(TripPreviewPost(
                 postPreviewImageUrl: data["postPreviewImageUrl"],
                 postPreviewLandText: data["postPreviewLandText"],
                 postPreviewLandTitle: data["postPreviewLandTitle"],
                 postPreviewTripMonths: data["postPreviewTripMonths"]));
           });
-
-          return ListView(scrollDirection: Axis.horizontal, children: test);
-          // return TripPreviewPost(
-          //     // postPreviewImageUrl: _postPreviewImageUrl,
-          //     postPreviewLandText: _posts,
-          //     // postPreviewLandTitle: _postPreviewLandTitle,
-          //     // postPreviewTripMonths: _postPreviewTripMonths
-          //     );
+          if (userPosts == null || userPosts.length == 0) {
+             return Center(child: Text("No Posts found")); //TODO: Make page for adding Post. 
+          } 
+          else {
+            return ListView(
+                scrollDirection: Axis.horizontal,
+                children: userPosts,
+                physics: BouncingScrollPhysics());
+          }
         }
 
-        return Text("loading");
+        return Center(child: CircularProgressIndicator());
       },
     );
   }

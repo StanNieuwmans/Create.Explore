@@ -1,6 +1,7 @@
-import 'package:create_explore/Pages/SignInPage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+
+import 'Pages/FullScreenPage/SignInPage.dart';
 void main() async{
 
 WidgetsFlutterBinding.ensureInitialized();
