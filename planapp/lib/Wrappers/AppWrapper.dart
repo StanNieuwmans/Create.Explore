@@ -1,3 +1,6 @@
+import 'package:create_explore/Pages/AddPostPage.dart';
+import 'package:create_explore/Pages/PreviewPostPage.dart';
+import 'package:create_explore/RouteAnimation/ScaleRoute.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -13,6 +16,7 @@ class AppWrapper extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Container(
             child: Image.network(
                 "https://images.unsplash.com/photo-1613258488197-04297077fe10?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
@@ -37,6 +41,7 @@ class AppWrapper extends StatelessWidget {
         elevation: 0.0,
         showSelectedLabels: false,
         showUnselectedLabels: false,
+        onTap: (value) => goToPage(value, context),
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.search_outlined), label: "Search"),
@@ -46,5 +51,17 @@ class AppWrapper extends StatelessWidget {
       ),
       body: body,
     );
+  }
+
+///Change this to state when you know more about states :)
+  void goToPage(int value, BuildContext context) {
+    switch (value) {
+      case 0:
+        Navigator.push(context, ScaleRoute(page: PreviewPostPage()));
+        break;
+      case 1:
+        Navigator.push(context, MaterialPageRoute(builder: (context) => AddPostPage()));
+        break;
+    }
   }
 }
